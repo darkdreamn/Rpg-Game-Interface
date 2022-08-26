@@ -16,10 +16,9 @@ app.get('/combat/:id', function (req, res) {
 
     const attack = id => {
         if (id == 1) {
-            return hero.UsePhysicalAttack()
+            return hero.usePhysicalAttack()
         }
     }
-
     res.send(String(attack(id)))
 })
 
