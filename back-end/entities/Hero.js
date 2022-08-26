@@ -5,12 +5,10 @@ class Hero extends Characters {
         super(active, name, level, healPoints, magicalPoints, madicalDefense, magicalAttack, physicalDefense, physicalAttack)
     }
     UsePhysicalAttack() {
-        console.log("ataque feito")
-
-
-        // if (this.healPoints < 7) {
-
-        // }
+        if (this.healPoints < 7)
+            return this.physicalAttack + 1
+        else
+            return this.physicalAttack
     }
 }
 
