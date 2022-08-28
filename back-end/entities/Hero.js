@@ -5,10 +5,20 @@ class Hero extends Characters {
         super(active, name, level, healPoints, magicalPoints, madicalDefense, magicalAttack, physicalDefense, physicalAttack)
     }
     usePhysicalAttack() {
-        if (this.healPoints < 7)
-            return this.physicalAttack + 1
-        else
-            return this.physicalAttack
+        if (this.healPoints < 7) {
+            let attackReturn = {
+                powerUsed: "Ataque de Espada +1",
+                point: this.physicalAttack + 1
+            }
+            return attackReturn
+        }
+        else {
+            let attackReturn = {
+                powerUsed: "Ataque de Espada",
+                point: this.physicalAttack
+            }
+            return attackReturn
+        }
     }
     useMagicalPower() {
         this.magicalPoints = 0
