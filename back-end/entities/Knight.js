@@ -1,8 +1,9 @@
 const { Characters } = require('./Characters')
 
 class Knight extends Characters {
-    constructor(active, name, level, healPoints, magicalPoints, madicalDefense, magicalAttack, physicalDefense, physicalAttack) {
-        super(active, name, level, healPoints, magicalPoints, madicalDefense, magicalAttack, physicalDefense, physicalAttack)
+    constructor(active, name, healPoints, magicalPoints, madicalDefense, magicalAttack, physicalDefense, physicalAttack) {
+        super(active, name, healPoints, magicalPoints, madicalDefense, magicalAttack, physicalDefense, physicalAttack)
+        this.hability1 = "Caso leve um dano que zere os pontos de vida, desfere um contra ataque físico +2"
     }
     usePhysicalAttack() {
         let attackReturn = {

@@ -9,6 +9,11 @@ const createNewElement = element => {
     main.appendChild(newElement)
 }
 
+setTimeout(() => {
+    let b = document.querySelector('h3')
+    console.log(b)
+}, 2000);
+
 for (let i = 0; i < 3; i++) {
     axios.get(`http://localhost:3000/choice/${i}`)
         .then(response => createElementChoice(response.data))
@@ -17,32 +22,59 @@ for (let i = 0; i < 3; i++) {
     const createElementChoice = element => {
         const choice = document.getElementById('select-character')
         const ul = document.createElement('ul')
-        ul.innerHTML = `Novo: ${element.name}`
         choice.appendChild(ul)
 
         let li = document.createElement('li')
-        li.innerHTML = element.healPoints
+        li.innerHTML = element.name
         ul.appendChild(li)
 
         li = document.createElement('li')
-        li.innerHTML = element.magicalPoints
+        li.innerHTML = `HP: ${element.healPoints}`
         ul.appendChild(li)
 
         li = document.createElement('li')
-        li.innerHTML = element.madicalDefense
+        li.innerHTML = `MP: ${element.magicalPoints}`
         ul.appendChild(li)
 
         li = document.createElement('li')
-        li.innerHTML = element.magicalAttack
+        li.innerHTML = `DF.M: ${element.madicalDefense}`
         ul.appendChild(li)
 
         li = document.createElement('li')
-        li.innerHTML = element.physicalDefense
+        li.innerHTML = `AT.M: ${element.magicalAttack}`
         ul.appendChild(li)
 
         li = document.createElement('li')
-        li.innerHTML = element.physicalAttack
+        li.innerHTML = `DF.F: ${element.physicalDefense}`
         ul.appendChild(li)
+
+        li = document.createElement('li')
+        li.innerHTML = `AT.F: ${element.physicalAttack}`
+        ul.appendChild(li)
+
+        if (element.name == 'hero') {
+            li = document.createElement('li')
+            li.innerHTML = `<p>Habilidade Ativa:</p> ${element.hability1}`
+            ul.appendChild(li)
+
+            li = document.createElement('li')
+            li.innerHTML = `<p>Habilidade Passiva:</p> ${element.hability2}`
+            ul.appendChild(li)
+
+            li = document.createElement('li')
+            li.innerHTML = `<p>Habilidade Passiva:</p> ${element.hability3}`
+            ul.appendChild(li)
+        }
+        else if (element.name == 'knight') {
+            li = document.createElement('li')
+            li.innerHTML = `<p>Habilidade Passiva:</p> ${element.hability1}`
+            ul.appendChild(li)
+        }
+        else if (element.name == 'wizard') {
+            li = document.createElement('li')
+            li.innerHTML = `<p>Habilidade Ativa:</p> ${element.hability1}`
+            ul.appendChild(li)
+        }
 
         // data.forEach((item) => {
         //     let li = document.createElement("li");
@@ -51,3 +83,4 @@ for (let i = 0; i < 3; i++) {
         // }
     }
 }
+
